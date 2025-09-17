@@ -8,6 +8,7 @@ const errorHandlerMiddleware = require('./middleware/errorHandle');
 
 const flightRouter = require('./route/flight');
 const aircraftRouter = require('./route/aircraft');
+const authRouter = require('./route/auth');
 
 //connect db
 const mongoose = require('mongoose');
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 //route
 app.use('/flight', flightRouter);
 app.use('/aircraft', aircraftRouter);
+app.use('/', authRouter);
 
 //routeMiddleware
 app.use(notFound);
